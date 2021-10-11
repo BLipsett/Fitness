@@ -1,5 +1,6 @@
 import React from 'react'
 import Challenge from '../../components/challenge/challenge.component';
+import './homepage.styles.scss'
 
 const Homepage = () => (
   

@@ -63,7 +63,7 @@ function ResponsiveDrawer(props) {
       <AppBar
         position="fixed"
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { sm: `calc(100% px)` },
           ml: { sm: `${drawerWidth}px` },
         }}
       >
@@ -73,7 +73,7 @@ function ResponsiveDrawer(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { sm: 'block' } }}
           >
             <MenuIcon />
           </IconButton>
@@ -97,14 +97,14 @@ function ResponsiveDrawer(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
+            display: { xl: 'block' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
           {drawer}
         </Drawer>
-        <Drawer
-          variant="permanent"
+        {/* <Drawer
+          variant="temporary"
           sx={{
             display: { xs: 'none', sm: 'block' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
@@ -112,7 +112,7 @@ function ResponsiveDrawer(props) {
           open
         >
           {drawer}
-        </Drawer>
+        </Drawer> */}
       </Box>
       
     </Box>
