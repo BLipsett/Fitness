@@ -1,43 +1,45 @@
 import React from 'react'
 import './challenge.styles.scss'
+import InputDist from '../InputDist/inputDist.component'
+import Total from '../total/total.component'
 
 class Challenge extends React.Component {
-constructor(props){
-  super(props)
+constructor(){
+  super()
 
   this.state = {
-      currentScore: ''
+      total: ''
   }
 
 }
 
-handleSubmit = async event => {
-  event.preventDefault()
-  const { currentScore } = this.state
+calculate = () => {
+  try {
+    this.setState({
+      total: (this.state.total += )
+    })
+  } catch (error) {
+    
+  }
 }
 
-handleChange = async event => {
-  const {name, value} = event.target;
-  this.setState({[name]: value})
-}
+// handleSubmit = async event => {
+//   event.preventDefault()
+//   const { currentScore } = this.state
+// }
+
+// handleChange = async event => {
+//   const {name, value} = event.target;
+//   this.setState({[name]: value})
+// }
   render() {
-    const { currentScore } = this.state
     return (
       <div className='challenge'>
         <h1>Walk 900 minutes total</h1>
-        <p>enter your total minutes</p>
-        <form onSubmit={this.handleSubmit}>
+        <p>enter your minutes walked</p>
+       <InputDist onClick={this.onClick}/>
+        <Total total={this.state.total}/>
 
-        <input
-        type='number'
-        name='current-score'
-        label='current-score'
-        onChange={this.handleChange}
-        // value={currentScore} required
-        ></input>
-        <button type='submit'>add mins</button>
-        </form>
-        <p>current minutes: {currentScore}</p>
       </div>
 )
 }
