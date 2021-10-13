@@ -4,24 +4,49 @@ import InputDist from '../InputDist/inputDist.component'
 import Total from '../total/total.component'
 
 class Challenge extends React.Component {
-constructor(){
-  super()
+constructor(props){
+  super(props)
 
   this.state = {
-      total: ''
+      total: '',
+      list: []
   }
 
 }
 
-calculate = () => {
-  try {
-    this.setState({
-      total: (this.state.total += )
-    })
-  } catch (error) {
-    
+addItem() {
+
+  //create a new exercise with a unique id
+  const newItem = {
+    id: 1 + Math.random(),
+    value: this.state.newItem.slice()
   }
+
+  // copy current list of exercises
+  const list = [...this.state.list];
+
+  //add new exercise to list
+  list.push(newItem)
+
+  // update state with new list and reset the newItem input 
+  this.setState({
+    list,
+    newItem:''
+  })
+
+  console.log(this.state)
 }
+
+
+//updates the react state/ more so needed if local storage is needed
+updateInput(key, value) {
+  this.setState({
+    [key]: value
+  })
+  
+}
+
+
 
 // handleSubmit = async event => {
 //   event.preventDefault()
@@ -37,8 +62,15 @@ calculate = () => {
       <div className='challenge'>
         <h1>Walk 900 minutes total</h1>
         <p>enter your minutes walked</p>
-       <InputDist onClick={this.onClick}/>
-        <Total total={this.state.total}/>
+        <div className="input">
+          <input 
+          type="number" 
+          value={this.state.newItem}
+          onChange={e => this.updateInput('newItem', e.target.value)}
+          />
+          <button
+          onClick={() => this.addItem()}>Add Exercise</button>
+        </div>
 
       </div>
 )
