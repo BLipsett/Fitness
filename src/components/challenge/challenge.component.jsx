@@ -8,7 +8,8 @@ constructor(props){
   super(props)
 
   this.state = {
-      total: '',
+      total: 0,
+      minutesLeft: 900,
       list: []
   }
 
@@ -19,7 +20,7 @@ addItem() {
   //create a new exercise with a unique id
   const newItem = {
     id: 1 + Math.random(),
-    value: this.state.newItem.slice()
+    value: parseInt(this.state.newItem.slice())
   }
 
   // copy current list of exercises
@@ -28,13 +29,25 @@ addItem() {
   //add new exercise to list
   list.push(newItem)
 
+  // Sum of minutes added to list 
+  let initialValue = 0
+  const total = list.reduce(function (a, b) {
+    return a + b.value
+  }, initialValue)
+
+
+  // minutes left to walk from challenge 
+  let minutesLeft = 900 - total
+
+  console.log(list)
   // update state with new list and reset the newItem input 
   this.setState({
     list,
-    newItem:''
+    newItem:'',
+    total,
+    minutesLeft
   })
 
-  console.log(this.state)
 }
 
 
@@ -48,15 +61,7 @@ updateInput(key, value) {
 
 
 
-// handleSubmit = async event => {
-//   event.preventDefault()
-//   const { currentScore } = this.state
-// }
 
-// handleChange = async event => {
-//   const {name, value} = event.target;
-//   this.setState({[name]: value})
-// }
   render() {
     return (
       <div className='challenge'>
@@ -71,7 +76,18 @@ updateInput(key, value) {
           <button
           onClick={() => this.addItem()}>Add Exercise</button>
         </div>
-
+<p> Total minutes walked: {this.state.total}</p>
+<p>Minutes left: {this.state.minutesLeft}</p>
+<ul>
+  {this.state.list.map(item =>
+    {
+      return(
+        <li key={item.id}>
+          {item.value}
+        </li>
+      )
+    })}
+</ul>
       </div>
 )
 }
