@@ -22,6 +22,7 @@ addItem() {
     id: 1 + Math.random(),
     value: parseInt(this.state.newItem.slice())
   }
+  localStorage.setItem('listItem', JSON.stringify(newItem))
 
   // copy current list of exercises
   const list = [...this.state.list];
