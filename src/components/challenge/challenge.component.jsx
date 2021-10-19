@@ -17,22 +17,38 @@ constructor(props){
 
 // Grab list of exercises from local storage 
 componentDidMount() {
-  const item = JSON.parse(localStorage.getItem("listItem") || []);
-  let list = [...this.state.list];
-
-  if(item) {
-    list = item
+  try {
+    const list = JSON.parse(localStorage.getItem("listItem") || []);
+      
+     this.updateCount(list)
+  } catch (error) {
+    console.log('no items')
   }
 
-  console.log(item)
-
-  this.setState({
-    list,
-    newItem:'',
- 
-  })
   
 }
+
+updateCount(list) {
+   // Sum of minutes added to list 
+      let initialValue = 0
+      const total = list.reduce(function (a, b) {
+        return a + b.value
+      }, initialValue)
+      
+      
+      // minutes left to walk from challenge 
+      let minutesLeft = 900 - total
+      
+      
+      // update state with new list and reset the newItem input 
+      this.setState({
+        list,
+        newItem:'',
+        total,
+        minutesLeft
+      })
+}
+
 
 addItem() {
 
@@ -73,6 +89,19 @@ addItem() {
 
 }
 
+//remove item from lust by id
+removeItem(itemId) {
+  let list = [...this.state.list];
+  let newList = list.filter(item => item.id !== itemId) 
+  list = newList
+  localStorage.setItem('listItem', JSON.stringify(list))
+
+  this.setState({list,
+  newItem:''
+})
+  this.updateCount(list)
+}
+
 
 //updates the react state/ more so needed if local storage is needed
 updateInput(key, value) {
@@ -101,18 +130,21 @@ updateInput(key, value) {
           <button
           onClick={() => this.addItem()}>Add Exercise</button>
         </div>
-<p> Total minutes walked: {this.state.total}</p>
-<p>Minutes left: {this.state.minutesLeft}</p>
-<ul>
-  {this.state.list.map(item =>
-    {
-      return(
-        <li key={item.id}>
-          {item.value}
-        </li>
-      )
-    })}
-</ul>
+        <p> Total minutes walked: {this.state.total}</p>
+        <p>Minutes left: {this.state.minutesLeft}</p>
+        <ul>
+          {this.state.list.map(item =>
+            {
+              return(
+                <div>
+                  <li>
+                    {item.value}
+                  </li>
+                  <button onClick={() => this.removeItem(item.id)}>delete</button>
+                </div>
+              )
+            })}
+        </ul>
       </div>
 )
 }
