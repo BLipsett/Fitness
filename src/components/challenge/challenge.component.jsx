@@ -15,6 +15,19 @@ constructor(props){
 
 }
 
+// Grab list of exercises from local storage 
+componentDidMount() {
+  const item = JSON.parse(localStorage.getItem("listItem"));
+  const list = [...this.state.list];
+
+  this.setState({
+    list,
+    newItem:'',
+ 
+  })
+  this.addItem(item)
+}
+
 addItem() {
 
   //create a new exercise with a unique id
@@ -66,7 +79,9 @@ updateInput(key, value) {
   render() {
     return (
       <div className='challenge'>
-        <h1>Walk 900 minutes total</h1>
+        <div className="title">
+          <h1>Walk 900 minutes total</h1>
+        </div>
         <p>enter your minutes walked</p>
         <div className="input">
           <input 
