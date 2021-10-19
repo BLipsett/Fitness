@@ -17,15 +17,21 @@ constructor(props){
 
 // Grab list of exercises from local storage 
 componentDidMount() {
-  const item = JSON.parse(localStorage.getItem("listItem"));
-  const list = [...this.state.list];
+  const item = JSON.parse(localStorage.getItem("listItem") || []);
+  let list = [...this.state.list];
+
+  if(item) {
+    list = item
+  }
+
+  console.log(item)
 
   this.setState({
     list,
     newItem:'',
  
   })
-  this.addItem(item)
+  
 }
 
 addItem() {
@@ -35,13 +41,16 @@ addItem() {
     id: 1 + Math.random(),
     value: parseInt(this.state.newItem.slice())
   }
-  localStorage.setItem('listItem', JSON.stringify(newItem))
 
+  //
+  
+  
   // copy current list of exercises
   const list = [...this.state.list];
 
   //add new exercise to list
   list.push(newItem)
+  localStorage.setItem('listItem', JSON.stringify(list))
 
   // Sum of minutes added to list 
   let initialValue = 0
