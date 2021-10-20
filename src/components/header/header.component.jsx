@@ -17,6 +17,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import './header.styles.scss'
 
+import { Link } from 'react-router-dom'
+
 const drawerWidth = 240;
 
 function ResponsiveDrawer(props) {
@@ -32,6 +34,9 @@ function ResponsiveDrawer(props) {
       <Toolbar />
       <Divider />
       <List>
+        <Link className='wendler-container' to='/wendlerPage'>
+          <p>Wendler Page</p>
+        </Link>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
