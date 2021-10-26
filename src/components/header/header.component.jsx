@@ -37,6 +37,9 @@ function ResponsiveDrawer(props) {
         <Link className='wendler-container' to='/wendlerPage'>
           <p>Wendler Page</p>
         </Link>
+        <Link className='starting-strength-container' to='/startingStrengthPage'>
+          <p>Starting Strength Page</p>
+        </Link>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
