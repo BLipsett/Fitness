@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Homepage from './pages/homepage/homepage.component';
 import WendlerPage from './pages/wendler/wendlerPage.component';
 import StartingStrengthPage from './pages/startingStrength/startingStrength.component';
+import TodoPage from './pages/todoPage/todoPage.component';
 import Header from './components/header/header.component';
 
 
@@ -26,6 +27,9 @@ class App extends React.Component {
            <Route path='/startingStrengthPage'>
           <StartingStrengthPage />
           </Route>
+          <Route exact path='/todoList'>
+        <TodoPage />
+        </Route>
           </div>
         </div>
       </Router>

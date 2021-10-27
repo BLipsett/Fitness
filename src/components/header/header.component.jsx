@@ -40,6 +40,9 @@ function ResponsiveDrawer(props) {
         <Link className='starting-strength-container' to='/startingStrengthPage'>
           <p>Starting Strength Page</p>
         </Link>
+        <Link className='todo-container' to='/todoList'>
+          <p>To-do Page</p>
+        </Link>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
