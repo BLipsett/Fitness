@@ -137,7 +137,7 @@ updateInput(key, value) {
             {
               return(
                 <div>
-                  <li>
+                  <li key={item.id}>
                     {item.value}
                   </li>
                   <button onClick={() => this.removeItem(item.id)}>delete</button>
