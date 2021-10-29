@@ -1,0 +1,23 @@
+.kanye-block {
+  display: flex;
+  border: 2px black solid;
+  max-width: 50rem;
+}
+
+.ye-pic {
+  height: 5rem;
+  width: 5rem;
+}
+
+.ye-check {
+  color: rgb(8, 101, 241);
+}
+
+.profile-picture {
+  height: 100%;
+  width: fit-content;
+}
+
+.icons i{
+  color: gray;
+}
