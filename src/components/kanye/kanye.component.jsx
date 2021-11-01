@@ -41,30 +41,26 @@ export default function KanyeQoute() {
   } else {
     return (
       <div className='container kanye-block'>
-        <div className="row flex-column">
-          <div className="col-2 profile-picture">
-            <div className='ye-image'>  
-              <img src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v.jpg" className='ye-pic' alt='kanye-pic' />
-            </div>
-        </div>
-        <div className="col-10 d-flex flex-row">
-          <div><p><b>ye</b></p></div>
-          <div><i class="fas fa-certificate"></i></div>
-          <div><p>@kanyewest</p></div>
-        </div>
-        <div className="col-10 qoute">
-          <h3>{qoute.quote}.</h3>
-        </div>
-        <div className="icons col-10 d-flex flex-row justify-content-between">
-          <div><i className="far fa-comment">{comments}k</i></div>
-          <div> 
-          <i className="fas fa-retweet">{retweets}k</i>
+          <div className="row flex-column flex-wrap">
+            <div className="col-2 profile-picture">
+              <div className='ye-image'>  
+                <img src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v.jpg" className='ye-pic' alt='kanye-pic' />
+              </div>
           </div>
-          <div>
-          <i className="far fa-heart">{likes}k</i>
+          <div className="col-10 d-flex py-2 align-content-center flex-row">
+            <div><p><b>ye</b></p></div>
+            <div><i class="fas fa-certificate ye-check"></i></div>
+            <div><p>@kanyewest</p></div>
+          </div>
+          <div className="col-12 qoute justify-content-center p-2">
+            <h3>{qoute.quote}.</h3>
+          </div>
+          <div className="icons col-12 d-flex flex-row justify-content-around">
+            <div><i className="far fa-comment">{comments}k</i></div>
+            <div><i className="fas fa-retweet">{retweets}k</i></div>
+            <div><i className="far fa-heart">{likes}k</i></div>
           </div>
         </div>
-      </div>
     </div>
      
     );
