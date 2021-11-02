@@ -52,10 +52,10 @@ export default function KanyeQoute() {
             <div><i class="fas fa-certificate ye-check"></i></div>
             <div><p>@kanyewest</p></div>
           </div>
-          <div className="col-12 qoute justify-content-center p-2">
-            <h3>{qoute.quote}.</h3>
+          <div className="col-8 qoute justify-content-center p-2">
+            <p>{qoute.quote}.</p>
           </div>
-          <div className="icons col-12 d-flex flex-row justify-content-around">
+          <div className="icons col-10 d-flex flex-row justify-content-around">
             <div><i className="far fa-comment">{comments}k</i></div>
             <div><i className="fas fa-retweet">{retweets}k</i></div>
             <div><i className="far fa-heart">{likes}k</i></div>
