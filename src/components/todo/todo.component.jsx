@@ -11,6 +11,7 @@ export default function Todo({todo, toggleTodo}) {
       <h3>
       {todo.name}
       </h3>
+      <p>Would you like to add a color for your note tab</p>
       </label>
     </div>
   )
