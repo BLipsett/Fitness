@@ -1,4 +1,10 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const Text = styled.div`
+color: red;
+font-size: 24px;
+`
 
 export default function Todo({todo, toggleTodo}) {
   function handleTodo() {
@@ -13,6 +19,9 @@ export default function Todo({todo, toggleTodo}) {
       </h3>
       <p>Would you like to add a color for your note tab</p>
       </label>
+    <div>
+      <Text>I am a component</Text>
     </div>
+  </div>
   )
 }
