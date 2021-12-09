@@ -7,6 +7,7 @@ export default function TodoPage() {
 
   //use state hook returns an array
   const [todos, setTodos] = useState([])
+  const [val, setVal] = useState(0)
   const todoNameRef = useRef()
 
   const LOCAL_STORAGE_KEY = 'todos.app'
@@ -55,6 +56,7 @@ function clearTodos() {
   return (
     <div className='todo-main'>
       <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <button onClick={() => setVal(val + 1)}>priority: {val}</button>
       <h1>To-Do List Page</h1>
       <input ref={todoNameRef} type="text" />
       <button onClick={handleAddTodo}> Add Todo</button>
